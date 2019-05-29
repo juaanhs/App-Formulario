@@ -9,7 +9,9 @@ import android.widget.EditText;
 
 import br.com.caelum.stella.format.CPFFormatter;
 import br.com.juaanhs.cadastro.R;
+import br.com.juaanhs.cadastro.ui.activity.formatador.FormataTelefone;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidaCpf;
+import br.com.juaanhs.cadastro.ui.activity.validador.ValidaTelefone;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidacaoPadrao;
 
 public class FormularioCadastroActivity extends AppCompatActivity {
@@ -44,7 +46,21 @@ public class FormularioCadastroActivity extends AppCompatActivity {
 
     private void configuraCampoTelefone() {
         TextInputLayout textInputTelefone = findViewById(R.id.formulario_cadastro_telefone);
-        adicionaValidacaoPadrao(textInputTelefone);
+        final EditText campoTelefone = textInputTelefone.getEditText();
+        final ValidaTelefone validador = new ValidaTelefone(textInputTelefone);
+        final FormataTelefone formatador = new FormataTelefone();
+        campoTelefone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String telefone = campoTelefone.getText().toString();
+                if(hasFocus){
+                    String telefoneSemFormatacao = formatador.remove(telefone);
+                    campoTelefone.setText(telefoneSemFormatacao);
+                } else {
+                    validador.estaValido();
+                }
+            }
+        });
     }
 
     private void configuraCampoCpf() {
@@ -56,7 +72,7 @@ public class FormularioCadastroActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
-                    adicionaFormatacao(formatador, campoCpf);
+                    removeFormatacao(formatador, campoCpf);
                 } else {
                     validador.estaValido();
                 }
@@ -64,7 +80,7 @@ public class FormularioCadastroActivity extends AppCompatActivity {
         });
     }
 
-    private void adicionaFormatacao(CPFFormatter formatador, EditText campoCpf) {
+    private void removeFormatacao(CPFFormatter formatador, EditText campoCpf) {
         String cpf = campoCpf.getText().toString();
         try {
             String cpfSemFormato = formatador.unformat(cpf);
