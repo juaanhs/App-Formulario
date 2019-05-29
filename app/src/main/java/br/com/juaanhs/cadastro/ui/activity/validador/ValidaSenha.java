@@ -5,7 +5,8 @@ import android.widget.EditText;
 
 public class ValidaSenha implements Validador {
 
-    public static final String SENHA_DEVE_TER_ENTRE_SEIS_A_VINTE_DIGITOS = "Senha deve ter entre 6 a 20 dígitos";
+    private static final String SENHA_DEVE_TER_ENTRE_SEIS_A_VINTE_DIGITOS = "Senha deve ter entre 6 a 20 dígitos";
+    private static final String SENHA_DEVE_CONTER_LETRAS_MAIUSCULAS_MINUSCULAS_E_NUMEROS = "Senha deve conter letras maiúsculas, minúsculas e números";
     private final TextInputLayout textInputSenha;
     private final EditText campoSenha;
     private ValidacaoPadrao validadorPadrao;
@@ -20,7 +21,7 @@ public class ValidaSenha implements Validador {
         if(senha.matches("(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])[A-Za-z\\d@#$%]{6,20}")){
             return true;
         }
-        textInputSenha.setError("Senha deve conter letras maiúsculas, minúsculas e números");
+        textInputSenha.setError(SENHA_DEVE_CONTER_LETRAS_MAIUSCULAS_MINUSCULAS_E_NUMEROS);
         return false;
     }
 
