@@ -5,7 +5,7 @@ import android.widget.EditText;
 
 import br.com.juaanhs.cadastro.ui.activity.formatador.FormataTelefone;
 
-public class ValidaTelefone {
+public class ValidaTelefone implements Validador{
 
     public static final String TELEFONE_DEVE_TER_DEZ_OU_ONZE_DIGITOS = "Telefone deve ter entre 10 a 11 dígitos";
     private final TextInputLayout textInputTelefone;
@@ -28,11 +28,13 @@ public class ValidaTelefone {
         return true;
     }
 
+    @Override
     public boolean estaValido() {
         if(!validacaoPadrao.estaValido()) return false;
         String telefone = campoTelefone.getText().toString();
-        if(!validaEntreDezOuOnzeDigitos(telefone)) return false;
-        adicionaFormatacao(telefone);
+        final String telefoneSemFormatacao = formatador.remove(telefone);
+        if(!validaEntreDezOuOnzeDigitos(telefoneSemFormatacao)) return false;
+        adicionaFormatacao(telefoneSemFormatacao);
         return true;
     }
 
