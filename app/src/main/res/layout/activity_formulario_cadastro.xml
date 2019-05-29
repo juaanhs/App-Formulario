@@ -48,7 +48,7 @@
             android:id="@+id/formulario_cadastro_cpf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/formulario_cadastro_nome_completo"
             app:layout_constraintStart_toStartOf="@+id/formulario_cadastro_nome_completo"
             app:layout_constraintTop_toBottomOf="@+id/formulario_cadastro_nome_completo">
@@ -63,7 +63,7 @@
             android:id="@+id/formulario_cadastro_telefone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/formulario_cadastro_cpf"
             app:layout_constraintStart_toStartOf="@+id/formulario_cadastro_cpf"
             app:layout_constraintTop_toBottomOf="@+id/formulario_cadastro_cpf">
@@ -78,7 +78,7 @@
             android:id="@+id/formulario_cadastro_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/formulario_cadastro_telefone"
             app:layout_constraintStart_toStartOf="@+id/formulario_cadastro_telefone"
             app:layout_constraintTop_toBottomOf="@+id/formulario_cadastro_telefone">
@@ -93,7 +93,7 @@
             android:id="@+id/formulario_cadastro_senha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/formulario_cadastro_email"
             app:layout_constraintStart_toStartOf="@+id/formulario_cadastro_email"
             app:layout_constraintTop_toBottomOf="@+id/formulario_cadastro_email">
@@ -109,8 +109,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Cadastrar
-"
+            android:text="Cadastrar"
             app:layout_constraintEnd_toEndOf="@id/formulario_cadastro_senha"
             app:layout_constraintStart_toStartOf="@id/formulario_cadastro_senha"
             app:layout_constraintTop_toBottomOf="@id/formulario_cadastro_senha" />
