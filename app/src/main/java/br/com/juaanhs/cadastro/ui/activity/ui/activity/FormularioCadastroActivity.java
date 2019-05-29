@@ -1,4 +1,4 @@
-package br.com.juaanhs.cadastro.ui.activity;
+package br.com.juaanhs.cadastro.ui.activity.ui.activity;
 
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import br.com.juaanhs.cadastro.R;
 import br.com.juaanhs.cadastro.ui.activity.formatador.FormataTelefone;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidaCpf;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidaEmail;
+import br.com.juaanhs.cadastro.ui.activity.validador.ValidaSenha;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidaTelefone;
 import br.com.juaanhs.cadastro.ui.activity.validador.ValidacaoPadrao;
 import br.com.juaanhs.cadastro.ui.activity.validador.Validador;
@@ -75,7 +76,18 @@ public class FormularioCadastroActivity extends AppCompatActivity {
 
     private void configuraCampoSenha() {
         TextInputLayout textInputSenha = findViewById(R.id.formulario_cadastro_senha);
-        adicionaValidacaoPadrao(textInputSenha);
+        //adicionaValidacaoPadrao(textInputSenha);
+        EditText campoSenha = textInputSenha.getEditText();
+        final ValidaSenha validador = new ValidaSenha(textInputSenha);
+        validadores.add(validador);
+        campoSenha.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    validador.estaValido();
+                }
+            }
+        });
     }
 
     private void configuraCampoEmail() {

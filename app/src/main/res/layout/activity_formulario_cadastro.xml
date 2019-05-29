@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView2"
@@ -18,7 +18,7 @@
             android:drawableStart="@drawable/ic_formulario_titulo_dados_pessoais"
             android:drawableLeft="@drawable/ic_formulario_titulo_dados_pessoais"
             android:drawablePadding="10dp"
-            android:text="Dados pessoais"
+            android:text="@string/dados_pessoais"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -42,7 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
-                android:hint="Nome completo" />
+                android:hint="@string/nome_completo"
+                android:digits="@string/mascara_nome_completo"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -58,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="CPF" />
+                android:hint="@string/cpf" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -74,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Telefone com DDD" />
+                android:hint="@string/telefone_com_ddd" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -90,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="E-mail" />
+                android:hint="@string/e_mail" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -107,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Senha" />
+                android:hint="@string/senha" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -115,7 +116,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Cadastrar"
+            android:text="@string/cadastrar"
             app:layout_constraintEnd_toEndOf="@id/formulario_cadastro_senha"
             app:layout_constraintStart_toStartOf="@id/formulario_cadastro_senha"
             app:layout_constraintTop_toBottomOf="@id/formulario_cadastro_senha" />

@@ -7,6 +7,7 @@ import android.widget.EditText;
 import br.com.caelum.stella.format.CPFFormatter;
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
+import br.com.juaanhs.cadastro.ui.activity.formatador.FormataCpf;
 
 public class ValidaCpf implements Validador{
 
@@ -16,7 +17,7 @@ public class ValidaCpf implements Validador{
     private final TextInputLayout textInputCpf;
     private final EditText campoCpf;
     private final ValidacaoPadrao validadorPadrao;
-    private final CPFFormatter formatador = new CPFFormatter();
+    private final FormataCpf formatador = new FormataCpf();
 
     public ValidaCpf(TextInputLayout textInputCpf) {
         this.textInputCpf = textInputCpf;
@@ -30,7 +31,7 @@ public class ValidaCpf implements Validador{
         String cpf = getCpf();
         String cpfSemFormato = cpf;
         try {
-            cpfSemFormato = formatador.unformat(cpf);
+            cpfSemFormato = formatador.remove(cpf);
         }catch (IllegalArgumentException e) {
             Log.e(ERRO_FORMATACAO_CPF, e.getMessage());
         }
@@ -41,7 +42,7 @@ public class ValidaCpf implements Validador{
     }
 
     private void adicionaFormatacao(String cpf) {
-        String cpfFormatado = formatador.format(cpf);
+        String cpfFormatado = formatador.formata(cpf);
         campoCpf.setText(cpfFormatado);
     }
 
