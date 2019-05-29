@@ -11,8 +11,8 @@ import br.com.caelum.stella.validation.InvalidStateException;
 public class ValidaCpf implements Validador{
 
     private static final String ERRO_FORMATACAO_CPF = "erro formatação cpf";
-    public static final String CPF_INVALIDO = "CPF inválido";
-    public static final String DEVE_TER_ONZE_DIGITOS = "O CPF precisa ter 11 digitos";
+    private static final String CPF_INVALIDO = "CPF inválido";
+    private static final String DEVE_TER_ONZE_DIGITOS = "O CPF precisa ter 11 digitos";
     private final TextInputLayout textInputCpf;
     private final EditText campoCpf;
     private final ValidacaoPadrao validadorPadrao;
