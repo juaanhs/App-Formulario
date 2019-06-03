@@ -38,8 +38,8 @@ public class ValidaSenha implements Validador {
     public boolean estaValido() {
         if(!validadorPadrao.estaValido()) return false;
         final String senha = campoSenha.getText().toString();
-        if(!validaPadrao(senha)) return false;
         if(!validaEntreSeisOuVinteDigitos(senha)) return false;
+        if(!validaPadrao(senha)) return false;
         return true;
     }
 }
